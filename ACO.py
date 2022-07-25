@@ -3,12 +3,12 @@ import numpy as np
 
 class ACO():
     def __init__(self, alpha: float, beta: float,
-                 rho: float, tao_0: float, n_interacoes: int,
+                 rho: float, tau_0: float, n_interacoes: int,
                  n_fromigas: int) -> None:
         self.alpha = alpha
         self.beta = beta
         self.rho = rho
-        self.tao_0 = tao_0
+        self.tau_0 = tau_0
         self.n_interacoes = n_interacoes
         self.n_formigas = n_fromigas
         self.melhor_caminho: list
@@ -136,7 +136,7 @@ class ACO():
         Args:
             matriz_adjacencia (np.array): Matriz de adjacência.
         """
-        matriz_feromonio = np.zeros(matriz_adjacencia.shape) + self.tao_0
+        matriz_feromonio = np.zeros(matriz_adjacencia.shape) + self.tau_0
         matriz_eta = 1/matriz_adjacencia
         self.menor_distancia = np.inf
 
