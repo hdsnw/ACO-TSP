@@ -1,0 +1,6 @@
+berlin52.tsp
+.vscode/
+__pycache__/
+
+.mypy_cache/
+teste_aco.ipynb
