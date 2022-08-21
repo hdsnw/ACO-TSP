@@ -2,14 +2,14 @@ import numpy as np
 from ACO import ACO
 
 
-def distancia_euclidiana(x1: int, y1: int, x2: int, y2: int) -> float:
+def distancia_euclidiana(x1: float, y1: float, x2: float, y2: float) -> float:
     """Função que calcula a distância euclidiana entre dois pontos
 
     Args:
-        x1 (int): Coordenada x do ponto 1
-        y1 (int): Coordenada y do ponto 1
-        x2 (int): Coordenada x do ponto 2
-        y2 (int): Coordenada y do ponto 2
+        x1 (float): Coordenada x do ponto 1
+        y1 (float): Coordenada y do ponto 1
+        x2 (float): Coordenada x do ponto 2
+        y2 (float): Coordenada y do ponto 2
 
     Returns:
         float: Distância euclidiana
@@ -17,7 +17,7 @@ def distancia_euclidiana(x1: int, y1: int, x2: int, y2: int) -> float:
     return ((x1-x2)**2 + (y1-y2)**2)**(1/2)
 
 
-def matriz_de_adjacencia(nome_arquivo: str) -> np.array:
+def matriz_de_adjacencia(nome_arquivo: str) -> np.ndarray:
     """Retorna a matriz de adjacência a partir das cooredadas
     das cidades em um arquivo.
 
@@ -27,7 +27,7 @@ def matriz_de_adjacencia(nome_arquivo: str) -> np.array:
     Returns:
         np.array: Matriz de adjacência.
     """
-    lines: str = ''
+    lines: list[str] = list()
     with open(nome_arquivo, 'r') as arq:
         lines = arq.readlines()
 
@@ -37,8 +37,8 @@ def matriz_de_adjacencia(nome_arquivo: str) -> np.array:
     # Obtendo as linhas que contém apenas as coordenadas
     coordenadas: list[str] = lines[6:6+numero_cidades]
 
-    coordenada_x: list = list()
-    coordenada_y: list = list()
+    coordenada_x: list[float] = list()
+    coordenada_y: list[float] = list()
 
     for i in coordenadas:
         coordenadas_split: list[str] = i.split()
