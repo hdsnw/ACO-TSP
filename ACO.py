@@ -158,7 +158,8 @@ class ACO():
             # Evapor feromonios
             matriz_feromonio = (1-self.rho)*matriz_feromonio
 
-    def get_caminho(self) -> list:
+    @property
+    def caminho(self) -> list:
         """Retorna o melhor caminho encontrado.
 
         Returns:
@@ -166,7 +167,8 @@ class ACO():
         """
         return self.melhor_caminho
 
-    def get_distancia(self) -> float:
+    @property
+    def distancia(self) -> float:
         """Retorna a menor distância encontrada.
 
         Returns:

@@ -65,6 +65,6 @@ if __name__ == "__main__":
     matriz_adjacencia = matriz_de_adjacencia('berlin52.tsp')
     colonia_formiga = ACO(1, 2, 0.5, 0.1, 100, 50)
     colonia_formiga.fit(matriz_adjacencia)
-    caminho = colonia_formiga.get_caminho()
-    distancia = colonia_formiga.get_distancia()
+    caminho = colonia_formiga.caminho
+    distancia = colonia_formiga.distancia
     print(f'Distância: {distancia}')
