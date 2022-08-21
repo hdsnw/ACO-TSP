@@ -113,8 +113,7 @@ class ACO():
         caminho = [0]
 
         while len(cidades_destinos) > 1:
-            cidades_probabilidade = self._probabilidade(matriz_adjacencia,
-                                                        matriz_feromonios,
+            cidades_probabilidade = self._probabilidade(matriz_feromonios,
                                                         matriz_eta,
                                                         caminho[-1],
                                                         cidades_destinos)
