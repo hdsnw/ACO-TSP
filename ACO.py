@@ -58,7 +58,7 @@ class ACO():
                 break
         return cidades_destino[i]
 
-    def _insere_feromonio(self, matriz_feromonio: np.array,
+    def _insere_feromonio(self, matriz_adjacencia: np.ndarray,
                           matriz_feromonio: np.ndarray,
                           caminho: list,
                           distancia: float) -> np.ndarray:
@@ -73,8 +73,10 @@ class ACO():
             np.ndarray: Matriz de feromônio atualizada.
         """
         for i in range(0, len(caminho)-1):
-            matriz_feromonio[caminho[i], caminho[i+1]] += 1/distancia
-            matriz_feromonio[caminho[i+1], caminho[i]] += 1/distancia
+            matriz_feromonio[caminho[i], caminho[i+1]] += 1 / \
+                matriz_adjacencia[caminho[i], caminho[i+1]]
+            matriz_feromonio[caminho[i+1], caminho[i]] += 1 / \
+                matriz_adjacencia[caminho[i+1], caminho[i]]
         return matriz_feromonio
 
     def _distancia_caminho(self, matriz_adjacencia: np.ndarray,
@@ -145,7 +147,8 @@ class ACO():
                                                    matriz_eta,
                                                    matriz_feromonio)
 
-                self._insere_feromonio(matriz_feromonio,
+                self._insere_feromonio(matriz_adjacencia,
+                                       matriz_feromonio,
                                        caminho,
                                        distancia)
 
